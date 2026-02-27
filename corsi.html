@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendario Corsi in Aula - SPAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" title="Torna alla Home">SPAQ</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="e-learning.html">E-Learning</a>
+            <a href="https://www.spaqsrl.store/" target="_blank" class="btn btn-gold">E-Shop</a>
+        </nav>
+    </header>
+
+    <div class="formazione-header">
+        <h1>Calendario Corsi in Aula</h1>
+        <p>Formazione in presenza nelle nostre sedi di Milano, Bergamo e Sanremo.</p>
+        <div class="cert-badge">🏆 Certificato UNI EN ISO 9001: EA 35, 37</div>
+    </div>
+
+    <div class="calendar-section" style="margin-top: 4rem;">
+        
+        <div class="filter-bar">
+            <h2>Prossimi Eventi</h2>
+            <input type="text" id="filtroCorsi" class="filter-input" placeholder="Cerca per corso o città...">
+        </div>
+        
+        <div class="calendar-list" id="calendario-aula">
+            <p style="text-align: center; color: var(--text-muted); padding: 3rem;">Sincronizzazione con il database in corso...</p>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom: 1rem; font-weight: bold; font-size: 1.2rem;">SPAQ S.r.l.</div>
+        <p>&copy; 2026 SPAQ S.r.l. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        let tuttiICorsi = []; 
+
+        function formattaData(dataString) {
+            const dateObj = new Date(dataString);
+            if(isNaN(dateObj)) return { giorno: "??", meseAnno: dataString };
+            const giorno = dateObj.getDate().toString().padStart(2, '0');
+            const mese = dateObj.toLocaleString('it-IT', { month: 'short' });
+            const anno = dateObj.getFullYear();
+            return { giorno, meseAnno: `${mese} ${anno}` };
+        }
+
+        function renderCorsi(corsi) {
+            const container = document.getElementById('calendario-aula');
+            container.innerHTML = ''; 
+            
+            if(corsi.length === 0) {
+                container.innerHTML = '<p style="text-align: center; padding: 4rem; background: var(--bg-surface); border-radius: 8px; font-size: 1.2rem; color: var(--text-muted);">Nessun corso trovato.</p>';
+                return;
+            }
+
+            corsi.forEach(corso => {
+                const data = formattaData(corso.data);
+                container.innerHTML += `
+                    <div class="calendar-item">
+                        <div class="cal-date-box">
+                            <span class="day">${data.giorno}</span>
+                            <span class="month-year">${data.meseAnno}</span>
+                        </div>
+                        <div class="cal-content">
+                            <h4>${corso.titolo}</h4>
+                            <div class="cal-meta">${corso.aula}</div>
+                            <div class="cal-desc">${corso.descrizione}</div>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        fetch('/cgi-bin/backend.cgi')
+            .then(response => response.json())
+            .then(corsi => {
+                tuttiICorsi = corsi;
+                renderCorsi(tuttiICorsi);
+            })
+            .catch(err => {
+                console.error('Errore backend:', err);
+                document.getElementById('calendario-aula').innerHTML = '<p style="text-align: center; color: var(--danger);">Impossibile caricare il calendario al momento.</p>';
+            });
+
+        document.getElementById('filtroCorsi').addEventListener('input', function(e) {
+            const termine = e.target.value.toLowerCase();
+            const filtrati = tuttiICorsi.filter(c => 
+                c.titolo.toLowerCase().includes(termine) || 
+                c.aula.toLowerCase().includes(termine)
+            );
+            renderCorsi(filtrati);
+        });
+    </script>
+</body>
+</html>

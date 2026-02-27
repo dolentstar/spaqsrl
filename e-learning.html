@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning FAD - SPAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .fad-box { background: var(--bg-surface); padding: 4rem; border-radius: 12px; box-shadow: var(--shadow-xl); max-width: 1000px; margin: -4rem auto 5rem; position: relative; z-index: 10; border-top: 4px solid var(--accent); }
+        .fad-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 3rem; text-align: left; }
+        .fad-list { list-style: none; }
+        .fad-list li { margin-bottom: 1.5rem; padding-left: 2rem; position: relative; color: var(--text-main); font-size: 1.1rem; }
+        .fad-list li::before { content: '✔'; position: absolute; left: 0; color: var(--accent); font-weight: bold; font-size: 1.2rem; }
+        @media (max-width: 768px) { .fad-grid { grid-template-columns: 1fr; gap: 2rem; } .fad-box { padding: 2rem; } }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">SPAQ</a>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="corsi.html">Corsi in Aula</a>
+            <a href="https://www.spaqsrl.store/" target="_blank" class="btn btn-gold">E-Shop</a>
+        </nav>
+    </header>
+
+    <div class="formazione-header" style="padding: 8rem 5% 8rem;">
+        <h1>La Mia FAD</h1>
+        <p>L'evoluzione della formazione aziendale. Sicura, tracciabile e certificata ovunque tu sia.</p>
+    </div>
+
+    <div class="fad-box">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <h2 style="color: var(--primary-dark); font-size: 2.2rem; margin-bottom: 1rem;">Formazione Continua e di Aggiornamento</h2>
+            <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 800px; margin: 0 auto;">La nostra piattaforma e-learning è progettata in conformità al Sistema Qualità certificato <strong>UNI EN ISO 9001</strong>. Garantiamo lo stesso rigore della formazione in aula, con la flessibilità del digitale.</p>
+        </div>
+
+        <div class="fad-grid">
+            <div>
+                <h3 style="color: var(--primary); margin-bottom: 1.5rem; font-size: 1.5rem;">I Vantaggi per l'Azienda</h3>
+                <ul class="fad-list">
+                    <li><strong>Azzeramento dei costi</strong> di trasferta e ottimizzazione dei tempi lavorativi.</li>
+                    <li><strong>Tracciabilità completa</strong> secondo normativa (log degli accessi, tempi di fruizione).</li>
+                    <li><strong>Test di valutazione</strong> intermedi e finali con rilascio automatico degli attestati.</li>
+                    <li><strong>Consulenza gestionale</strong> per la realizzazione di piattaforme personalizzate.</li>
+                </ul>
+            </div>
+            <div style="background: var(--bg-body); padding: 2.5rem; border-radius: 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(0,0,0,0.05);">
+                <h3 style="color: var(--primary-dark); margin-bottom: 1rem;">Accedi all'Area Riservata</h3>
+                <p style="color: var(--text-muted); margin-bottom: 2rem;">Inserisci le tue credenziali per riprendere i corsi assegnati o scaricare gli attestati.</p>
+                <a href="#" class="btn btn-blue" style="padding: 1.2rem; font-size: 1.1rem;">Login Piattaforma FAD</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom: 1rem; font-weight: bold; font-size: 1.2rem;">SPAQ S.r.l.</div>
+        <p>&copy; 2026 SPAQ S.r.l. Tutti i diritti riservati.</p>
+    </footer>
+</body>
+</html>
