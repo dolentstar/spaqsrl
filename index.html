@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPAQ - Sicurezza, Privacy, Ambiente, Qualità</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo" title="Torna alla Home">SPAQ</a>
+        
+        <nav>
+            <a href="#chi-siamo">Chi Siamo</a>
+            <a href="#servizi">Consulenza & Servizi</a>
+            <a href="corsi.html">Calendario Corsi</a>
+            <a href="e-learning.html">E-Learning FAD</a>
+            <a href="https://www.spaqsrl.store/" target="_blank" class="btn btn-gold">E-Shop</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="chi-siamo">
+        <h1><span>S</span>icurezza, <span>P</span>rivacy, <span>A</span>mbiente, <span>Q</span>ualità</h1>
+        <p>Siamo il tuo partner strategico. Forniamo consulenza integrata, rilievi strumentali, medicina del lavoro e alta formazione aziendale per garantire che la tua impresa operi sempre ai massimi standard normativi.</p>
+    </section>
+
+    <div class="container" id="servizi">
+        <h2 class="section-title">Le Nostre Aree di Intervento</h2>
+        <div class="grid-container">
+            <div class="card">
+                <h3>⛑️ Sicurezza sul Lavoro</h3>
+                <p>Assunzione incarico RSPP, redazione DVR, DUVRI, Piani di Emergenza e consulenza continua.</p>
+            </div>
+            <div class="card">
+                <h3>🩺 Medicina del Lavoro</h3>
+                <p>Sorveglianza sanitaria, nomina del Medico Competente e gestione informatizzata cartelle cliniche.</p>
+            </div>
+            <div class="card">
+                <h3>🔒 Privacy & Cybersecurity</h3>
+                <p>Adeguamento GDPR, incarico DPO e sistemi di protezione e anticontraffazione dati.</p>
+            </div>
+            <div class="card">
+                <h3>📜 Sistemi di Gestione</h3>
+                <p>Implementazione di sistemi certificati Qualità (ISO 9001), Ambiente (ISO 14001) e Sicurezza (ISO 45001).</p>
+            </div>
+            <div class="card">
+                <h3>🔬 Rilievi Strumentali</h3>
+                <p>Valutazioni fonometriche, microclima, campi elettromagnetici e campionamenti ambientali.</p>
+            </div>
+            <div class="card">
+                <h3>🤝 Co-Working SPAQ</h3>
+                <p>Spazi di lavoro attrezzati, sale riunioni e aule formative a Sanremo.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="padding-top: 0;">
+        <div style="background: var(--bg-surface); padding: 5rem 3rem; border-radius: 12px; text-align: center; box-shadow: var(--shadow-lg); border-top: 4px solid var(--accent);">
+            <h2 class="section-title" style="margin-bottom: 2rem;">Il Polo Formativo Certificato</h2>
+            <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 800px; margin: 0 auto 3rem; line-height: 1.8;">
+                Eroghiamo alta formazione certificata <strong>UNI EN ISO 9001</strong>. Scegli il percorso più adatto alle tue esigenze aziendali.
+            </p>
+            <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+                <a href="corsi.html" class="btn btn-gold" style="padding: 1.2rem 3rem; font-size: 1.1rem;">📅 Calendario in Aula</a>
+                <a href="e-learning.html" class="btn btn-blue" style="padding: 1.2rem 3rem; font-size: 1.1rem;">💻 Scopri la FAD</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="margin-bottom: 1rem; font-weight: bold; font-size: 1.2rem;">SPAQ S.r.l.</div>
+        <p>Sede Legale: Via Antonio Lissoni, 7 - 20162 Milano | Sede Operativa: Via Pietro Agosti, 212 - Sanremo</p>
+        <div style="margin: 1.5rem 0; height: 1px; background: rgba(255,255,255,0.2); width: 50%; margin-left: auto; margin-right: auto;"></div>
+        <p style="font-size: 0.85rem; opacity: 0.8;">P.IVA 06944710968 | PEC: spaq@pec.spaq.it<br>&copy; 2026 SPAQ S.r.l. Tutti i diritti riservati.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
